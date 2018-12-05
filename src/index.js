@@ -2,21 +2,33 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const exphbs= require('express-handlebars');
+const methodOverride = require('method-override');
+const session = require('express-session');
 //Settings
 app.set('port', process.env.PORT || 3000);
 app.set('views',path.join(__dirname,'views'));
 app.engine('.hbs',exphbs({
     defaultLayout:'',
     layoutsDir:path.join(app.get('views'),'layouts'),
-    partialsDir:'',
-    extname:''
+    partialsDir:path.join(app.get(app.get('views'),'partials')),
+    extname:'.hbs'
 }));
-//Middlewares
+app.set('view engine','.hbs');
 
+//Middlewares
+app.use(express.urlencoded({extended:false}));
+app.use(express.methodOverride(_method));//Extiende verbos http en forms
+app.use(session({
+    secret:'mysecretapp',//una palabra cualquiera para codificación
+    resave:true,
+    saveUninitialized:true
+}));
 //Global variables
 
 //Routes
-
+app.use(require('./routes/index'));
+app.use(require('./routes/notes'));
+app.use(require('./routes/users'));
 //Static Files
 
 //Server is listening
