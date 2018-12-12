@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Debido a la configuración en el servidor , ya se encuentra establecida la carpeta
+    publica "public" -->
     <!--Bootstrap CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!--FontAwesame CDN -->
-    
+    <!-- CSS Propio Nota:Debe ser de ultimo para sobreescribir el de bootstrap-->
+    <link rel="stylesheet" href="/css/main.css">
     <title>Notes App</title>
 </head>
 <body>
     <p>Nav</p>
-    {{{body}}}
+    <main class="container">
+        {{{body}}}
+    </main>
     <p>Footer</p>
 </body>
 </html>
