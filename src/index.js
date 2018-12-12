@@ -7,6 +7,7 @@ const session = require('express-session');
 //Initializations
 const app = express();
 require('./database');
+
 //Settings
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
