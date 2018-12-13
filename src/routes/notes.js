@@ -1,6 +1,7 @@
-var express = require('express');
-var router = express.Router();
-
+const express = require('express');
+const router = express.Router();
+// Importacion de modelo (clase)
+const Note = require('../models/Notes')
 router.get('/notes/add',(req,res) => {
     res.render('notes/new-note');
 });
@@ -26,6 +27,12 @@ router.post('/notes/new-note',(req,res)=>{
             title,
             description
         });
+    }
+    else
+    {
+        const newNote = new Note({title,description});
+        console.log(newNote);
+        res.send('Ok');
     }
 });
 
