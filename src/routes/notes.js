@@ -6,7 +6,8 @@ router.get('/notes/add',(req,res) => {
     res.render('notes/new-note');
 });
 //Recepcionando datos
-router.post('/notes/new-note',(req,res)=>{
+//Con la palabra async establecemos que dentro de la función habran metodos asincronos , que se indicaran con prefijo await
+router.post('/notes/new-note',async(req,res)=>{
     //en body vienen los valores enviados por post
     //console.log(req.body)
     const  {title,description} = req.body;
@@ -31,13 +32,16 @@ router.post('/notes/new-note',(req,res)=>{
     else
     {
         const newNote = new Note({title,description});
-        console.log(newNote);
+        //Metodo asincrono (denotado por await)
+        await newNote.save();
+        res.redirect('/notes');
         res.send('Ok');
     }
 });
 
-router.get('/notes',(req,res) => {
-    res.send('notes');
+router.get('/notes',async(req,res) => {
+    await Notes.find();
+    //res.send('notes');
 });
 
 module.exports = router;
