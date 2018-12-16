@@ -9,6 +9,7 @@
     <!--Bootstrap CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!--FontAwesame CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- CSS Propio Nota:Debe ser de ultimo para sobreescribir el de bootstrap-->
     <link rel="stylesheet" href="/css/main.css">
     <title>Notes App</title>
@@ -16,6 +17,8 @@
 <body>
     <p>Nav</p>
     <main class="container">
+        <!-- Sintaxis hbs para llamar un partial {>nombre_partial}  -->
+        {{>messages}}
         {{{body}}}
     </main>
     <p>Footer</p>

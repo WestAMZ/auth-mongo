@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/nodes-de-app',{
+mongoose.connect('mongodb://localhost/node-notes-db',{
     useCreateIndex:true,
     useNewUrlParser:true,
     useFindAndModify:false
