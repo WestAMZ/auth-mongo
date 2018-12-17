@@ -5,4 +5,10 @@ router.get('/users/signin',(req,res) => {
 router.get('/users/signup',(req,res) => {
     res.render('users/signup');
 });
+
+router.post('/users/signup',async(req,res) => {
+    const  {name,email,password,confirm_password}  = req.body;
+
+    res.render('users/signup');
+});
 module.exports = router;

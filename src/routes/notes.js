@@ -55,12 +55,14 @@ router.put('/notes/edit-note/:id',async (req,res)=>
 {
     const {title,description} = req.body;
     await Note.findByIdAndUpdate(req.params.id,{title,description});
+    req.flash('success_msg','Note Update Succesfully');
     res.redirect('/notes');
 });
 
 router.delete('/notes/delete/:id',async (req,res)=>
 {
     await Note.findByIdAndDelete(req.params.id);
+    req.flash('success_msg','Note Deleted Succesfully');
     res.redirect('/notes');
 });
 module.exports = router;
