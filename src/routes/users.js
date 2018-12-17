@@ -7,8 +7,26 @@ router.get('/users/signup',(req,res) => {
 });
 
 router.post('/users/signup',async(req,res) => {
+    
     const  {name,email,password,confirm_password}  = req.body;
-
-    res.render('users/signup');
+    const errors = []
+    if(password != confirm_password)
+    {
+        errors.push({text:'Password do not match'});
+    }
+    if(password.length < 4)
+    {
+        errors.push({text:'Password must be at least 4 characters'});
+    }
+    if(errors.length > 0)
+    {
+        res.render('users/signup',{error: errors,name,email,password,confirm_password});
+    }
+    else
+    {
+        res.send('OK');
+    }
+    
+    //res.render('users/signup');
 });
 module.exports = router;
