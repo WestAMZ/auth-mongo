@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/WestAMZ/auth-mongo#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",

@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const User = require('../models/User')
 router.get('/users/signin',(req,res) => {
     res.render('users/signin');
 });
@@ -10,7 +11,6 @@ router.post('/users/signup',async(req,res) => {
     
     const  {name,email,password,confirm_password}  = req.body;
     const errors = []
-    console.log(req.body);
     if(name.length <= 0)
     {
         errors.push({text:'Please Insert Your Name'})
@@ -29,7 +29,18 @@ router.post('/users/signup',async(req,res) => {
     }
     else
     {
-        res.send('OK');
+        //Validacion de correos repetidos
+        const emailUser  = User.findOne({email : email});
+        if(emailUser )
+        {
+            req.flash('error_msg','The email is already in use')
+        }
+        const newUser = new User ({name,email,password});
+        console.log(newUser);
+        newUser.password = newUser.encryptPassword(password);
+        await newUser.save();
+        req.flash('success_msg','You are registered');
+        res.redirect('/users/signin')
     }
     
     //res.render('users/signup');
