@@ -1,0 +1,11 @@
+    Iniciar servicio de base de datos 
+        > mongod (se debe estar en C: y tener carpeta C:data/db/)
+    Mostrar todas las bases de datos
+        >show dbs
+    Usar base de datos
+        >use <nombredb>
+    Mostrar las colecciones (tablas)
+        >show collections
+    Mostrar registros de una tablas
+        >db.<nombre_tabla>.find().pretty()
+    Buscar todo 
