@@ -31,7 +31,7 @@ router.post('/users/signup',async(req,res) => {
     {
         //Validacion de correos repetidos
         const emailUser  = await User.findOne({email});
-        console.log("Email User: \n",emailUser);
+        //console.log("Email User: \n",emailUser);
         if(emailUser )
         {
             req.flash('error_msg',{text:'the email is already in use'});
