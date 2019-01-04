@@ -4,9 +4,12 @@ const exphbs= require('express-handlebars');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
+const passport = requier('passport');
+
 //Initializations
 const app = express();
 require('./database');
+requier('./config/passport');
 
 //Settings
 app.set('port', process.env.PORT || 4000);
@@ -27,6 +30,12 @@ app.use(session({
     resave:true,
     saveUninitialized:true
 }));
+
+//Segmento de Passport (debe ir luego de establecer el uso de sesiones)
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Configuración de Flash (mensajes globales)
 app.use(flash());
 //Global variables
 app.use((req,res,next)=>{
