@@ -1,11 +1,14 @@
 const passport = require('passport');
-const LocalStrategy = requiere('passport-local').LocalStrategy;
+const LocalStrategy = require('passport-local').Strategy;
+
+const mongoose = require('mongoose');
+const User = require('../models/User'); 
 
 passport.use(new LocalStrategy({
     usernameField : 'email'},
     async (email,password,done) =>{
         const user = await User.findOne({email:email});
-        if(user)
+        if(!user)
         {
             //done metodo de terminacion de autentificación
             // err , usuario , mensaje
@@ -14,7 +17,7 @@ passport.use(new LocalStrategy({
         else
         {
             //Verificación de contraseña
-            const match = User.matchPassword(password);
+            const match = user.matchPassword(password);
             if(match)
             {
                 return done(null,user)
