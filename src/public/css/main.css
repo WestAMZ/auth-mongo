@@ -1,13 +1,21 @@
 body
 {
-    background:#343233;
+    animation: 5s animation;
 }
 
 footer
 {
-    background:#2C2A2B;
+    background:#2C2A2B infinity;
 }
 .logo
 {
     width: 30%;
+}
+@keyframes animation
+{
+    0% { background: blue;}
+    20% { background: yellow;}
+    40% { background: green;}
+    60% { background: red;}
+    80% { background: purple;}
 }

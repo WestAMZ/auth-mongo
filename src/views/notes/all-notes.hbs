@@ -21,4 +21,12 @@
             </div>
         </div>
     {{/each}}
+    {{#if notes}}
+        <div class="card mx-auto">
+            <div class="card-body">
+                <p class="lead">are you wanting add a new note</p>
+                <a href="/notes/add" class="btn btn-success btn-block">Create One!</a>
+            </div>
+        </div>
+    {{/if}}
 </div>
