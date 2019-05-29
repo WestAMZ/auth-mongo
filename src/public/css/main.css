@@ -1,6 +1,6 @@
 body
 {
-    animation: 5s animation;
+    background: gray;
 }
 
 footer
@@ -10,12 +10,4 @@ footer
 .logo
 {
     width: 30%;
-}
-@keyframes animation
-{
-    0% { background: blue;}
-    20% { background: yellow;}
-    40% { background: green;}
-    60% { background: red;}
-    80% { background: purple;}
 }
