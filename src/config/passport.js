@@ -33,7 +33,7 @@ passport.use(new LocalStrategy({
 //Almacenamiento de usuario en sesión
 passport.serializeUser((user,done)=>
 {
-    done(null,user,id);
+    done(null,user.id);
 });
 
 //Obtención de usuario dado una sesión

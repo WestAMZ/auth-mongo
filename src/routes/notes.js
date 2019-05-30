@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 // Importacion de modelo (clase)
 const Note = require('../models/Notes')
+cont{isAuthenticated} = require('../helpers/auth')
+
 router.get('/notes/add',(req,res) => {
     res.render('notes/new-note');
 });
