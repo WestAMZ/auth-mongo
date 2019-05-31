@@ -42,6 +42,8 @@ app.use((req,res,next)=>{
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
+    //Objeto guardado por passport req.user
+    res.locals.user = req.user || null;
     //next() hace que se ejecute el siguiente codigo sin esperar la ejecución del bloque
     next();
 });

@@ -57,13 +57,12 @@ router.post('/users/signup',async(req,res) => {
         
     }
     
-    //res.render('users/signup');
-
-    //Cerrar Sesion
-    router.get('/users/logout', (req, res) => {
-        req.logout();
-        req.flash('success_msg', 'You are logged out now.');
-        res.redirect('/users/signin');
-      });
+    //res.render('users/signup');   
 });
+//Cerrar Sesion
+router.get('/users/logout', (req, res) => {
+    req.logout();
+    req.flash('success_msg', 'You are logged out now.');
+    res.redirect('/users/signin');
+  });
 module.exports = router;
